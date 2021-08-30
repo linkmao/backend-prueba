@@ -15,14 +15,14 @@ A continuación detallo el paso a paso necesario para crear un proyecto como est
     Se debe tener cuenta en vercel y mongodb
 
 1. Se incia el proyecto
+```
 $ npm i -g vercel  (esta es una instalacion global)
 $ vercel init   (parado en el directorio de proyectos , elegir custom build, luego cambiar nombre de directorio)
 $ vercel  (es intuitivo, solo en override settings respondemos N)
-
+```
 
 2. instalacion de dependencias necesarias
 ```
-
 $ npm i -S express
 $ npm i -S mongoose
 $ npm i -S body-parser
@@ -43,6 +43,10 @@ mongodb+srv://maolink:<password>@pedidosdb.h360t.mongodb.net/myFirstDatabase?ret
 En esta linea de codigo se debe poner el pass del usuario y myFirstDatabase, por la base de datos a usar, 
 si la idea es usar una nueva se coloca alli el nombre y mongo la crea cuando la app accesa la primerra vez
 
+3. Inicio la codificacion
+* Se crea la carpeta api, donde estará todo el backend
 
+4. subir backend a vercel
+$ vercel
 
 
