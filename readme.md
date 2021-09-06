@@ -42,11 +42,46 @@ mongodb+srv://maolink:<password>@pedidosdb.h360t.mongodb.net/myFirstDatabase?ret
 ```
 En esta linea de codigo se debe poner el pass del usuario y myFirstDatabase, por la base de datos a usar, 
 si la idea es usar una nueva se coloca alli el nombre y mongo la crea cuando la app accesa la primerra vez
+Esta url es la que se llava a la variable de entorno que se crea en vercel
 
 3. Inicio la codificacion
-* Se crea la carpeta api, donde estará todo el backend
+* Se crea la carpeta api, donde estará todo el backend, y con el toda la codificacion necesaria, para este tipo de proyectos he encontrado que el orden de desarrollo es
+    a) Codificacion de los modelos   api/models/modelo.js
+    b) Codificacion de los controladores de las rutas   api/routes/rutas.js
+    c) Codificacion del index.js    api/index     (se establecen las rutas)
+        En la codificacion del index es donde se hace la conexión de al app con la bd en mongo, con el código
+        mongoose.connect(process.env.VARIABLE_ENTORNO,{useNewUrl:true, useUnifiedTopology:true});
+        la VARIABLE_ENTORNO se crea en vercel en El espacio proyecto-->Settings-->Environment Variables
+        alli se copia 
+```
+mongodb+srv://maolink:<password>@pedidosdb.h360t.mongodb.net/myFirstDatabase?retryWrites=true&w=majority
+```
+por supuesto ponendo el pass y el nombre de la bd a usar o crear
 
 4. subir backend a vercel
 $ vercel
 
+o
+Ejecutar el local (siempre es mas recomendable y corregir y depurar en local par luego subir a vercel): Para ello previamente se requiere que la variable de entorno esté en nuestra carpeta de
+trabajo, si ya la tenemos en vercel la podemos decargar con
+$ vercel env pull
 
+Luego para correr en local se usa
+$ vercel dev
+
+Nota, para este ultimo comando el shell que me sirve es el de git
+
+5. Uso de Postman para las peticiones get, post, put, delete
+con el get no hay nada de especial
+con el post y put se debe priemro garantizar que en Headers , el params Contet-type= application/json
+y luego para subir los datos se hace en body, usando la opcion raw. Un ejemplo del json usado es
+
+{
+    "firstname": "Mauricio", 
+    "lastname": "Rua Florez",
+    "age": 42,
+    "phone": "3113523313",
+    "grade": "NA",
+    "matricula": true,
+    "desc": "Programador principal"
+}
