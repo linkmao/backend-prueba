@@ -1,3 +1,6 @@
+/* Ruta para la implementacion de modelo notas, en realidad quizás esté funcional pero no la desarrolé
+por completo */
+
 const express = require ('express');
 const router = express.Router();
 const Notas = require('../models/notas');

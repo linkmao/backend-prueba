@@ -1,4 +1,4 @@
-// Creacion del modelo 
+// Creacion del modelo notas (a la fecha 25 de sept de 2021 no se implementó este modelo)
 const mongoose = require('mongoose');
 const plantilla= mongoose.Schema;
 

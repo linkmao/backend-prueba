@@ -3,8 +3,18 @@
 ## Descripcion general
 ***
 Esta es la codificacion de un pequeño backend con el único objetivo de poner en practica lo aprendido en el 
-curso de react
+curso de react. Basado del proyecto Serveless
 
+## Descripcion puntual
+Este backend tiene toda la lógica necesaria para el proceso de regristro de datos de usuario con la encriptacion de la contraseña, y el logueo del usuario con la generacion del token que permite la autarizacion para el uso de las rutas
+
+La ruta rigurosamnete codificada es routes/auth pues es el que permite el registro con la encriptacion y el  login con la entrega del token.
+
+Las rutas codificadas en routes/users son a modo de prueba pues se puede acceder a ellas sin la validacion de un token, solo la ruta /me dentro de users tiene la implementacion adecuada pues permite ver los datos
+de usuario den token guardado
+
+## Implementaciones y mejoras futuras
+- Hacer una implementacion de los roles, por ejemplo el de admin, previamente logueado peritiendo así una gestión de la información desde el frontend
 
 
 
@@ -27,6 +37,8 @@ $ npm i -S express
 $ npm i -S mongoose
 $ npm i -S body-parser
 $ npm i -S cors
+$ npm i -S crypto
+$ npm i -S jsonwebtoken
 ```
 
 2. Cluster de base de datos
@@ -85,3 +97,10 @@ y luego para subir los datos se hace en body, usando la opcion raw. Un ejemplo d
     "matricula": true,
     "desc": "Programador principal"
 }
+
+6. Desarrollo del backend para la autenticacion
+El desarrollo para la autenticación se hace usando el modelo Users, y el router auth.js, sin embargo en este proyecto se dejará el router users.js que permite el acceso a toda la información de User, sin embargo el uso de post y put deberia ser cauteloso pues no tiene los requisitos necesarios para la encriptación de la contraseña, proceso que si lo tiene el router auth
+
+***
+## Maolink Softare
+Septiembre 2021 
